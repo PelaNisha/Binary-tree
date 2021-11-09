@@ -26,18 +26,20 @@ node *search(int key, node *leaf)
 {
 	if(leaf!=0)
 	{
-		if(key = leaf->info)
+		if(key == leaf->info)
 		{
+			printf("%d is present\n", leaf->info);
 			return leaf;
 		}else if(key<leaf->info)
 		{
 			return search(key, leaf->left);
-		}else
+		}else 
 		{
 			return search(key , leaf->right);
 		}
 		
-	}else return 0;
+	}
+	return NULL;
 }
 
 node *insert(node *root, int x)
@@ -116,7 +118,7 @@ int main()
 	node *root = NULL;
 	do
 	{
-		printf("enter the options:\n1.insert\n2.preorder traverse\n3. post order\n4. in order\n");
+		printf("enter the options:\n1.insert\n2.preorder traverse\n3. post order\n4. in order\n5. search\n");
 		scanf("%d", &a);
 
 		switch(a){
@@ -137,6 +139,12 @@ int main()
 				inorder(root);
 				printf("\n");
 				break;		
+			case 5:
+				int x;
+				printf("enter the element to search\n");
+				scanf("%d", &x);
+				root = search(x, root);	
+				break;
 		}
 	}while(i!=2);
 }
