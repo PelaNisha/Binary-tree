@@ -44,8 +44,7 @@ node *search(int key, node *leaf)
 
 node *insert(node *root, int x)
 {
-//	node *newnode;
-//	newnode = (node*)malloc(sizeof(node));
+
 	
 	if(root==NULL)
 	{
@@ -58,7 +57,6 @@ node *insert(node *root, int x)
 		root->info = x;
 		root->left = NULL;
 		root->right= NULL;
-//		root = nn;
 		return root;
 	}else
 	if(root->info>x)
